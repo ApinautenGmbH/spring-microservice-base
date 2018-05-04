@@ -18,9 +18,9 @@
 			<organization>Apinauten GmbH</organization>
 		</developer>
 	</developers>
-	<url>https://github.com/apiOmat/integration-test-helper</url>
+	<url>https://github.com/ApinautenGmbH/spring-microservice-base</url>
 	<scm>
-		<url>https://github.com/apiOmat/integration-test-helper</url>
+		<url>https://github.com/ApinautenGmbH/spring-microservice-base</url>
 		<developerConnection>Apinauten GmbH</developerConnection>
 	</scm>
 	<organization>
