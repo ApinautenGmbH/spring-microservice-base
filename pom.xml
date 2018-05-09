@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.apiomat</groupId>
 	<artifactId>spring-base</artifactId>
-	<version>1.0.2</version>
+	<version>1.0.3</version>
 	<packaging>pom</packaging>
 	<name>msbase</name>
 	<description>Base package for ApiOmat Microservices based on the Spring framework</description>
@@ -39,6 +39,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
 		<docker.image.prefix>apiomat</docker.image.prefix>
+		<finalName>${project.artifactId}.jar</finalName>
 	</properties>
 
 	<dependencies>
@@ -86,7 +87,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<finalName>${project.artifactId}.jar</finalName>
+					<finalName>${finalName}</finalName>
 					<executable>true</executable>
 				</configuration>
 			</plugin>
@@ -107,7 +108,7 @@
 					<repository>${docker.image.prefix}/${project.artifactId}</repository>
 					<tag>${project.version}</tag>
 					<buildArgs>
-						<JAR_FILE>target/${project.build.finalName}.war</JAR_FILE>
+						<JAR_FILE>target/${finalName}.war</JAR_FILE>
 					</buildArgs>
 				</configuration>
 			</plugin>
