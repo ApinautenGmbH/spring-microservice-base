@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.apiomat</groupId>
 	<artifactId>spring-base</artifactId>
-	<version>1.2.1</version>
+	<version>1.2.2</version>
 	<packaging>pom</packaging>
 	<name>msbase</name>
 	<description>Base package for ApiOmat Microservices based on the Spring framework</description>
@@ -114,6 +114,7 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<configuration>
 					<warName>${project.artifactId}</warName>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
 				</configuration>
 			</plugin>
 			<!-- dockerize -->
