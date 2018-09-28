@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.apiomat</groupId>
 	<artifactId>spring-base</artifactId>
-	<version>1.2.0</version>
+	<version>1.2.1</version>
 	<packaging>pom</packaging>
 	<name>msbase</name>
 	<description>Base package for ApiOmat Microservices based on the Spring framework</description>
@@ -123,7 +123,7 @@
 				<version>1.4.0</version>
 				<configuration>
 					<repository>${docker.image.prefix}/${project.artifactId}</repository>
-					<tag>${project.version}</tag>
+					<tag>${project.version}-nightly</tag>
 					<buildArgs>
 						<JAR_FILE>target/${finalName}.war</JAR_FILE>
 					</buildArgs>
