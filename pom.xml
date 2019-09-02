@@ -234,10 +234,5 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
-		<repository>
-			<id>apiomat.internal.repo</id>
-			<name>Internal ApiOmat Repository</name>
-			<url>https://nexus.apiomat.com/repository/maven-public/</url>
-		</repository>
 	</repositories>
 </project>
