@@ -5,22 +5,38 @@ This document contains some helpful information to update your project's spring-
 ## Update 1.2.5 to 2.0.0
 
 With version 2.0.0 the spring-base pom.xml only contains the dependency management (versioning of dependencies). 
-This means that you have to include all needed dependencies into your project's pom.xml by yourself, because the spring-base pom.xml doesn't deliver them. 
+All the dependencies provided by spring-base 1.2.5 are no longer automatically included into your project. 
+
+This means that you have to include all needed dependencies and plugins into your project's pom.xml by yourself, because the spring-base pom.xml doesn't deliver them.
+
+More information about the spring-base structure can be found within the [readme.md](readme.md).
 
 ### Recommended Way of Migration
 
-- Navigate to the root directory of your Maven project and execute the following command to retrieve a list of resolved dependencies:
+First update the version of your used spring-base to 2.0.0 by setting it as parent of your project's pom.xml
 
-    mvn dependency:list
+    <parent>
+        <groupId>com.apiomat</groupId>
+        <artifactId>spring-base</artifactId>
+        <version>2.0.0</version>
+    </parent>
 
-- Increase the version of the parental spring-base dependency in your project's pom.xml to 2.0.0
+Setting the spring-base as parent dependency implicitly pulls the defined dependency management from there.
 
+If you explicitly want to define the dependency management you can do this by adding the following lines to your project's pom.xml:
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.apiomat</groupId>
+                <artifactId>spring-base-dependencies</artifactId>
+                <version>2.0.0</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement> 
 
-- Resolve your compile errors by putting the needed dependency from your list (step 1) to your project's pom.xml (one by another)
+After that you need to copy all the dependencies that are needed by your project from pom.xml of spring-base 1.2.5 to the pom.xml of your project.
 
-
-
-- To find unused declared dependencies and used undeclared dependencies you can use the following command to keep your pom.xml clean: 
-
-    mvn dependency:analyze
+Also all the used plugins that are defined in pom.xml of spring-base 1.2.5 need to be copied to the pom.xml of your project.
